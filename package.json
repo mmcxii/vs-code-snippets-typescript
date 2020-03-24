@@ -1,0 +1,15 @@
+{
+  "name": "vs-code-snippets-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mmcxii/vs-code-snippets-typescript.git",
+  "author": "Nich Secord",
+  "publisher": "nichsecord",
+  "engines": {
+    "vscode": "^1.22.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "license": "MIT"
+}

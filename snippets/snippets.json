@@ -1,0 +1,88 @@
+{
+    "Creates an index file for routing a default export through": {
+        "prefix": "index",
+        "body": [
+            "import ${TM_DIRECTORY} from \"./${TM_DIRECTORY}\"",
+            "",
+            "export default ${TM_DIRECTORY}"
+        ],
+        "description": "Creates an index file for routing a default export through"
+        },
+        "Creates a Type-GraphQL Resolver": {
+            "prefix": "resolver",
+            "body": [
+              "import { Resolver } from \"type-graphql\";",
+              "",
+              "@Resolver()",
+              "export class ${TM_FILENAME_BASE}Resolver {",
+              "  @$1($2)",
+              "  async ${TM_FILENAME_BASE/([A-Z])([a-zA-Z]*)/${1:/downcase}$2/}() {",
+              "    $3",
+              "  }",
+              "}"
+            ],
+            "description": "Creates a Type-GraphQL Resolver"
+          },
+          "Creates a function component": {
+            "prefix": "rh",
+            "body": [
+              "import React from \"react\";",
+              "$1",
+              "",
+              "const ${TM_FILENAME_BASE}: React.FC = () => {",
+              "  $2",
+              "",
+              "  return (",
+              "    $3",
+              "  );",
+              "};",
+              "",
+              "export default ${TM_FILENAME_BASE};"
+            ],
+            "description": "Creates a function component"
+          },
+          "Creates a function component with props": {
+            "prefix": "rhp",
+            "body": [
+              "import React from \"react\";",
+              "$1",
+              "",
+              "interface Props {}",
+              "",
+              "const ${TM_FILENAME_BASE}: React.FC<Props> = () => {",
+              "  $2",
+              "",
+              "  return (",
+              "    $3",
+              "  );",
+              "};",
+              "",
+              "export default ${TM_FILENAME_BASE};"
+            ],
+            "description": "Creates a function component with props"
+          },
+          "Creates a file for testing a component": {
+            "prefix": "rt",
+            "body": [
+              "import React from 'react';",
+              "import { render } from '@testing-library/react';",
+              "",
+              "import ${TM_FILENAME_BASE/(.*)\\..+$/$1/} from \"./${TM_FILENAME_BASE/(.*)\\..+$/$1/}\";",
+              "",
+              "describe(\"<${TM_FILENAME_BASE/(.*)\\..+$/$1/} /> tests\", () => {",
+              "  it(\"$1\", () => {",
+              "    //* Arrange",
+              "    const { getByTestId } = render(<${TM_FILENAME_BASE/(.*)\\..+$/$1/} />);",
+              "",
+              "    //* Act",
+              "    $2",
+              "",
+              "    //* Assert",
+              "    $3",
+              "",
+              "  })",
+              "})"
+            ],
+            "description": "Creates a file for testing a component"
+          }
+    }
